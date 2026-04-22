@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import api from "../api";
 
 const UpdateProduct = () => {
   const { id } = useParams();
@@ -20,7 +20,7 @@ const UpdateProduct = () => {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com/${id}`);
+      const res = await api.get(`/product/${id}`);
       const data = res.data.Product;
 
       setName(data.name);
@@ -37,7 +37,7 @@ const UpdateProduct = () => {
 
   const getCategories = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com/category");
+      const res = await api.get(`/category`);
       setCategories(res.data.category);
     } catch (err) {
       toast.error(err.response?.data?.message || "Category error");
@@ -65,8 +65,8 @@ const UpdateProduct = () => {
         formData.append("image", image);
       }
 
-      await axios.put(
-        `https://shop-yp92.onrender.com/${id}`,
+      await api.put(
+        `/product/${id}`,
         formData,
         {
           headers: {
@@ -89,7 +89,7 @@ const UpdateProduct = () => {
     if (!window.confirm("Delete this product?")) return;
 
     try {
-      await axios.delete(`https://shop-yp92.onrender.com/${id}`, {
+      await api.delete(`/product/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

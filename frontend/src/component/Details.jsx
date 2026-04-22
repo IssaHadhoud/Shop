@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../api"
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Navbar from "./Navbar";
@@ -24,7 +24,7 @@ const Details = () => {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com/${id}`);
+      const res = await api.get(`/product/${id}`);
       setProduct(res.data.Product);
       console.log(res.data.Product);
     } catch (err) {
@@ -35,7 +35,7 @@ const Details = () => {
   const addToCart = async (productId) => {
     try {
       const sessionId = getCreateSessionId();
-      const res = await axios.post("https://shop-yp92.onrender.com/cart/add", {
+      const res = await api.post(`/cart/add`, {
         sessionId,
         productId,
         quantity: 1,
@@ -49,7 +49,7 @@ const Details = () => {
 
   const deleteProduct = async (id) => {
     try {
-      const res = await axios.delete(`https://shop-yp92.onrender.com/${id}`, {
+      const res = await api.delete(`/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

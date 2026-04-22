@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import api from "../api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Login = () => {
       return toast.error("Please fill all fields");
     }
     try {
-      const res = await axios.post("https://shop-yp92.onrender.com/user/login", {
+      const res = await api.post(`/user/login`, {
         email: email,
         password: password,
       });

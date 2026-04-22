@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 import toast,{Toaster} from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import api from "../api";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,8 +18,8 @@ const Register = () => {
     if (password !== confirmPassword) {
       toast.error("passwords are not match");
     } else {
-      axios
-        .post("https://shop-yp92.onrender.com/user/register", {
+      api
+        .post(`/user/register`, {
           name: name,
           email: email,
           password: password,

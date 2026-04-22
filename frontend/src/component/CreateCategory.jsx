@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import api from "../api";
 
 const CreateCategory = () => {
   const navigate = useNavigate();
@@ -19,11 +19,7 @@ const CreateCategory = () => {
       formData.append("description", description);
       formData.append("image", image);
 
-      await axios.post("https://shop-yp92.onrender.com/category", formData, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      await api.post(`/category`, formData);
 
       toast.success("Category created");
 
@@ -45,7 +41,6 @@ const CreateCategory = () => {
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card shadow p-4 rounded-4">
-
             <h3 className="text-center mb-4">Create Category</h3>
 
             <div className="text-center mb-3">
@@ -87,11 +82,13 @@ const CreateCategory = () => {
               }}
             />
             <div className="d-flex justify-content-center align-items-center gap-2">
-            <button className="btn btn-success " onClick={create}>
-              Create
-            </button>
-            <button className="btn btn-dark" onClick={()=>navigate(-1)}>Back</button>
-</div>
+              <button className="btn btn-success " onClick={create}>
+                Create
+              </button>
+              <button className="btn btn-dark" onClick={() => navigate(-1)}>
+                Back
+              </button>
+            </div>
           </div>
         </div>
       </div>

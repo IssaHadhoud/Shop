@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api"
 import "../App.css";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -32,7 +32,7 @@ const Dashboard = () => {
   const token = localStorage.getItem("token");
   const getUsers = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com/user", {
+      const res = await api.get("/user", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -47,7 +47,7 @@ const Dashboard = () => {
     try {
       if (!window.confirm("Are you sure you want to delete this user?")) return;
 
-      const res = await axios.delete(`https://shop-yp92.onrender.com/user/${id}`, {
+      const res = await api.delete(`/user/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -63,7 +63,7 @@ const Dashboard = () => {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com");
+      const res = await api.get(`/product`);
       setProduct(res.data.product);
       console.log(res.data.product);
     } catch (err) {
@@ -73,7 +73,7 @@ const Dashboard = () => {
 
   const getOrders = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com/order", {
+      const res = await api.get(`/order`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

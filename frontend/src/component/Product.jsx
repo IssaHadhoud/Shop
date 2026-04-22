@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "../App.css";
 import Navbar from "./Navbar";
 import { Link, useParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useMemo } from "react";
+import createApi from '../api'
 
 export const getCreateSessionId = () => {
   let sessionId = localStorage.getItem("sessionId");
@@ -22,7 +22,7 @@ const Product = () => {
   const [search, setSearch] = useState("");
   const getProduct = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com");
+      const res = await createApi.get(`/product`);
       console.log(res.data.product);
       setProduct(res.data.product);
     } catch (err) {
@@ -31,17 +31,18 @@ const Product = () => {
   };
   useEffect(() => {
     const fetchProducts = async () => {
-      let url = "https://shop-yp92.onrender.com";
+      let url = `/product`;
 
       if (id) {
-        url = `https://shop-yp92.onrender.com/category/${id}`;
+        url =`product/category/${id}`;
       }
 
-      const res = await axios.get(url);
+      const res = await createApi.get(url);
 
       const data = id ? res.data.products : res.data.product;
 
       setProduct(data);
+      console.log(data)
     };
 
     fetchProducts();
@@ -61,7 +62,7 @@ const Product = () => {
   const addToCart = async (productId) => {
     try {
       const sessionId = getCreateSessionId();
-      const res = await axios.post("https://shop-yp92.onrender.com/cart/add", {
+      const res = await createApi.post(`/cart/add`, {
         sessionId,
         productId,
         quantity: 1,
@@ -80,7 +81,7 @@ const Product = () => {
       <Toaster />
       <div className="container mt-4">
         <div className="row">
-          {filteredProduct.map((elem) => (
+          {filteredProduct?.map((elem) => (
             <div key={elem._id} className="col-lg-4 col-md-6 col-sm-12 mb-4">
               <div className="card h-100 shadow-sm rounded-4">
                 <Link

@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import api from '../api'
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -11,7 +11,7 @@ const Cart = () => {
 
   const getCart = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com/cart/${sessionId}`);
+      const res = await api.get(`/cart/${sessionId}`);
 
       setCart(res.data.cart.items);
     } catch (err) {
@@ -25,7 +25,7 @@ const Cart = () => {
 
   const removeFromCart = async (id) => {
     try {
-      await axios.delete(`https://shop-yp92.onrender.com/cart/${sessionId}/${id}`);
+      await api.delete(`/cart/${sessionId}/${id}`);
 
       getCart();
     } catch (err) {
@@ -35,7 +35,7 @@ const Cart = () => {
 
   const updateQuantity = async (id, quantity) => {
     try {
-      await axios.put(`https://shop-yp92.onrender.com/cart/update/${sessionId}/${id}`, {
+      await axios.put(`/cart/update/${sessionId}/${id}`, {
         quantity,
       });
 
@@ -53,7 +53,7 @@ const Cart = () => {
   const checkOut = async () => {
     try {
       const res = await axios.post(
-        "https://shop-yp92.onrender.com/order/checkout",
+        "/order/checkout",
         { sessionId },
         {
           headers: {

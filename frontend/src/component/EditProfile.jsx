@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../api";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -20,7 +20,7 @@ const [preview, setPreview] = useState("");
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await axios.get("https://shop-yp92.onrender.com/user/profile", {
+        const res = await api.get(`/user/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -50,7 +50,7 @@ getUser();
       formData.append("email", email);
       formData.append("image", image);
 
-      await axios.put(`https://shop-yp92.onrender.com/user/profile/${id}`, formData, {
+      await api.put(`/user/profile/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

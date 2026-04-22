@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import api from "../api";
 
 const EditCategory = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const EditCategory = () => {
   
   const getCategory = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com/category`);
+      const res = await api.get(`/category`);
       const data = res.data.category.find((c) => c._id === id);
 
       setTitle(data.title);
@@ -42,8 +42,8 @@ const EditCategory = () => {
         formData.append("image", image);
       }
 
-      await axios.put(
-        `https://shop-yp92.onrender.com/category/${id}`,
+      await api.put(
+        `/category/${id}`,
         formData,
         {
           headers: {
@@ -62,7 +62,7 @@ const EditCategory = () => {
 
   const deleteCategory = async () => {
     try {
-      await axios.delete(`https://shop-yp92.onrender.com/category/${id}`, {
+      await api.delete(`/category/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

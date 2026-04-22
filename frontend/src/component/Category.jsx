@@ -1,9 +1,9 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import "../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import api from '../api'
 
 
 const Category = () => {
@@ -22,7 +22,7 @@ const Category = () => {
       }
   const getCategory = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com/category`);
+      const res = await api.get(`/category`);
       setCategory(res.data.category);
       console.log(res.data.category)
     } catch (err) {

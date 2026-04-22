@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import api from "../api";
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const token = localStorage.getItem("token");
@@ -10,7 +10,7 @@ const Orders = () => {
 
   const getAllOrders = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com/order", {
+      const res = await api.get(`/order`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

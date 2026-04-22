@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import api from '../api'
 
 const CreateProduct = () => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const CreateProduct = () => {
      
 
 
-      await axios.post("https://shop-yp92.onrender.com", formData, {
+      await api.post(`/product`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "multipart/form-data",
@@ -61,7 +61,7 @@ const CreateProduct = () => {
 
   const getCategories = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com/category");
+      const res = await api.get(`/category`);
       setCategories(res.data.category);
     } catch (err) {
       toast.error(err.response?.data?.message || "Category error");

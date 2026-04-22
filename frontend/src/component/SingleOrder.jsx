@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import api from "../api";
 
 const SingleOrder = () => {
   const { id } = useParams();
@@ -12,7 +12,7 @@ const SingleOrder = () => {
 
   const getOrder = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com/order/${id}`, {
+      const res = await api.get(`/order/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

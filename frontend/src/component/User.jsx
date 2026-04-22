@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import toast,{Toaster} from "react-hot-toast";
+import api from "../api";
 
 const User = () => {
   const [user, setUser] = useState("");
@@ -10,8 +10,8 @@ const User = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    axios
-      .get("https://shop-yp92.onrender.com/user/profile", {
+    api
+      .get(`/user/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
