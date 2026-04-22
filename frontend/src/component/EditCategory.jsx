@@ -11,8 +11,6 @@ const EditCategory = () => {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
 
-  const token = localStorage.getItem("token");
-
   
   const getCategory = async () => {
     try {
@@ -55,9 +53,7 @@ const EditCategory = () => {
 
   const deleteCategory = async () => {
     try {
-      await api.delete(`/category/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await api.delete(`/category/${id}`);
 
       toast.success("Deleted successfully");
       navigate("/category");
