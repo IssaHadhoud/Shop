@@ -44,14 +44,7 @@ const EditCategory = () => {
 
       await api.put(
         `/category/${id}`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+        formData);
 
       toast.success("Category updated");
       navigate("/category");

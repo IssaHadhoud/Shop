@@ -34,12 +34,7 @@ const CreateProduct = () => {
      
 
 
-      await api.post(`/product`, formData, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await api.post(`/product`, formData);
 
       toast.success("Product created successfully");
 

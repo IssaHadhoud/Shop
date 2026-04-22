@@ -11,7 +11,7 @@ const MyOrder = () => {
    const token = localStorage.getItem("token");
   const getMyOrders = async () => {
     try {
-      const res = await api.get(`${process.env.baseUrl}/order/myOrder`, {
+      const res = await api.get(`/order/myOrder`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

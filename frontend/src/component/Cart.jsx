@@ -35,7 +35,7 @@ const Cart = () => {
 
   const updateQuantity = async (id, quantity) => {
     try {
-      await axios.put(`/cart/update/${sessionId}/${id}`, {
+      await api.put(`/cart/update/${sessionId}/${id}`, {
         quantity,
       });
 
@@ -52,15 +52,9 @@ const Cart = () => {
 
   const checkOut = async () => {
     try {
-      const res = await axios.post(
+      const res = await api.post(
         "/order/checkout",
-        { sessionId },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        },
-      );
+        { sessionId });
       navigate("/order/myOrder");
       getCart();
     } catch (err) {

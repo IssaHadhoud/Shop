@@ -50,12 +50,7 @@ getUser();
       formData.append("email", email);
       formData.append("image", image);
 
-      await api.put(`/user/profile/${id}`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await api.put(`/user/profile/${id}`, formData);
       navigate("/profile");
     } catch (err) {
       toast.error(err.response?.data?.message);

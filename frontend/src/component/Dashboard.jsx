@@ -73,11 +73,7 @@ const Dashboard = () => {
 
   const getOrders = async () => {
     try {
-      const res = await api.get(`/order`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await api.get(`/order`);
       setOrders(res.data.orders);
     } catch (err) {
       toast.error(err.response?.data?.message);
