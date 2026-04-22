@@ -9,7 +9,7 @@ import api from '../api'
 const Category = () => {
   const [category, setCategory] = useState([]);
   const navigate=useNavigate();
-  
+  const token =localStorage.getItem("token")
      let user = null;
       if (token) {
         try {
