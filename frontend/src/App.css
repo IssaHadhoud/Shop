@@ -1,0 +1,234 @@
+.search-container {
+  width: 40%;
+}
+
+.search-container input {
+  border-radius: 8px;
+  padding: 7px 10px;
+}
+
+.btn {
+  border-radius: 8px !important;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+}
+
+
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+.card:hover {
+  transform: scale(1.03);
+  transition: 0.5s;
+}
+
+
+
+.dashboard {
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.stat-card {
+  transition: 0.3s ease;
+  border-radius: 15px;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.dashboard {
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #212529;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-link {
+  color: #ccc;
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.sidebar-link:hover {
+  background: #343a40;
+  color: white;
+}
+
+
+.main-content {
+  background: #f8f9fc;
+  padding: 20px;
+  width: 100%;
+}
+
+
+
+body {
+  background: #f8f9fc;
+  color: #000;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background: #232323;
+  color: #fff;
+}
+
+body.dark-mode .card {
+  background: #1e1e1e;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+body.dark-mode .navbar {
+  background: #000 !important;
+}
+
+body.dark-mode .table {
+  color: #fff;
+}
+body.dark-mode .card {
+  background: #333;
+  color: #fff;
+  border:none
+}
+
+body.dark-mode .btn-light {
+  background: #000000;
+  color: #fff;
+  border: none;
+}
+
+.register-card {
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.register-card:hover {
+  transform: translateY(-5px);
+}
+.register-card input {
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.register-card .btn {
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.register-card .btn:hover {
+  transform: scale(1.02);
+}
+
+
+body.dark-mode .register-card {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+body.dark-mode .register-card input {
+  background: #2c2c2c;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark-mode .register-card input::placeholder {
+  color: #aaa;
+}
+
+.category-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.category-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.category-card img {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+.category-card .card-body {
+  padding: 15px;
+}
+
+.category-card h5 {
+  font-weight: bold;
+}
+
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode span,
+body.dark-mode a {
+  color: #fff !important;
+}
+
+
+.category-card p {
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
