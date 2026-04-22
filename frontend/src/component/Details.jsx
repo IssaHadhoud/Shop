@@ -49,11 +49,7 @@ const Details = () => {
 
   const deleteProduct = async (id) => {
     try {
-      const res = await api.delete(`/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await api.delete(`/${id}`);
       toast.success(res.data.message);
       navigate("/");
     } catch (err) {

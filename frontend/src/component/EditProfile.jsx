@@ -15,16 +15,12 @@ const [preview, setPreview] = useState("");
 
   const { id } = useParams();
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+
 
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await api.get(`/user/profile`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await api.get(`/user/profile`);
 
         const data = res.data.profile;
         setEmail(data.email);

@@ -82,9 +82,7 @@ const UpdateProduct = () => {
     if (!window.confirm("Delete this product?")) return;
 
     try {
-      await api.delete(`/product/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await api.delete(`/product/${id}`);
 
       toast.success("Product deleted");
       navigate("/");

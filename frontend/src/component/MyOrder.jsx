@@ -8,14 +8,9 @@ const MyOrder = () => {
   // const {id}=useParams()
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
-   const token = localStorage.getItem("token");
   const getMyOrders = async () => {
     try {
-      const res = await api.get(`/order/myOrder`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await api.get(`/order/myOrder`);
       setOrders(res.data.order);
       console.log(res.data.order)
     } catch (err) {
