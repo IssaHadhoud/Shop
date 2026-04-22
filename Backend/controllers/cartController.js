@@ -3,8 +3,6 @@ const productModel = require("../models/productSchema");
 const addToCart = async (req, res) => {
   try {
     const { productId, quantity, sessionId } = req.body;
-
-    // Check product exists (lightweight)
     const productExists = await productModel.exists({ _id: productId });
     if (!productExists) {
       return res.status(404).json({
@@ -13,7 +11,6 @@ const addToCart = async (req, res) => {
       });
     }
 
-    // Try update existing item directly
     let cart = await cartModel.findOneAndUpdate(
       {
         sessionId,
@@ -25,7 +22,6 @@ const addToCart = async (req, res) => {
       { new: true },
     );
 
-    // If product not in cart → push new item
     if (!cart) {
       cart = await cartModel.findOneAndUpdate(
         { sessionId },
@@ -34,7 +30,7 @@ const addToCart = async (req, res) => {
             items: { product: productId, quantity },
           },
         },
-        { new: true, upsert: true }, // creates cart if not exists
+        { new: true, upsert: true }, 
       );
     }
 
