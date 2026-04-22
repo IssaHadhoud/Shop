@@ -5,7 +5,7 @@ const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const imageURL = req.file
-      ? `http://localhost:5000/uploads/${req.file.filename}`
+      ? `https://shop-yp92.onrender.com5000/uploads/${req.file.filename}`
       : "";
     console.log(email, name, password);
     const newUser = new userModel({
@@ -109,7 +109,7 @@ const updateProfile = (req, res) => {
   console.log("update id", id);
   const update = req.body;
   if (req.file) {
-    update.imageURL = `http://localhost:5000/uploads/${req.file.filename}`;
+    update.imageURL = `https://shop-yp92.onrender.com5000/uploads/${req.file.filename}`;
   }
   console.log(update);
   userModel

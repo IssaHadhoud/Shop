@@ -34,7 +34,7 @@ const CreateProduct = () => {
      
 
 
-      await axios.post("http://localhost:5000/product", formData, {
+      await axios.post("https://shop-yp92.onrender.com5000/product", formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "multipart/form-data",
@@ -61,7 +61,7 @@ const CreateProduct = () => {
 
   const getCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/category");
+      const res = await axios.get("https://shop-yp92.onrender.com5000/category");
       setCategories(res.data.category);
     } catch (err) {
       toast.error(err.response?.data?.message || "Category error");

@@ -22,7 +22,7 @@ const Product = () => {
   const [search, setSearch] = useState("");
   const getProduct = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/product");
+      const res = await axios.get("https://shop-yp92.onrender.com5000/product");
       console.log(res.data.product);
       setProduct(res.data.product);
     } catch (err) {
@@ -31,10 +31,10 @@ const Product = () => {
   };
   useEffect(() => {
     const fetchProducts = async () => {
-      let url = "http://localhost:5000/product";
+      let url = "https://shop-yp92.onrender.com5000/product";
 
       if (id) {
-        url = `http://localhost:5000/product/category/${id}`;
+        url = `https://shop-yp92.onrender.com5000/product/category/${id}`;
       }
 
       const res = await axios.get(url);
@@ -61,7 +61,7 @@ const Product = () => {
   const addToCart = async (productId) => {
     try {
       const sessionId = getCreateSessionId();
-      const res = await axios.post("http://localhost:5000/cart/add", {
+      const res = await axios.post("https://shop-yp92.onrender.com5000/cart/add", {
         sessionId,
         productId,
         quantity: 1,

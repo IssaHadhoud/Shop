@@ -11,7 +11,7 @@ const MyOrder = () => {
    const token = localStorage.getItem("token");
   const getMyOrders = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/order/myOrder`, {
+      const res = await axios.get(`https://shop-yp92.onrender.com5000/order/myOrder`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

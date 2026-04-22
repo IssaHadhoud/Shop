@@ -28,7 +28,7 @@ const updateCategory= async(req,res)=>{
     const {id}=req.params;
     const update=req.body;
     const imageURL = req.file
-      ? `http://localhost:5000/uploads/${req.file.filename}`
+      ? `https://shop-yp92.onrender.com5000/uploads/${req.file.filename}`
       : "";
       if(imageURL){
         update.imageURL = imageURL
@@ -53,7 +53,7 @@ const updateCategory= async(req,res)=>{
 const createCategory=(req,res)=>{
     const {title,description,createdBy}=req.body;
       const imageURL = req.file
-    ? `http://localhost:5000/uploads/${req.file.filename}`
+    ? `https://shop-yp92.onrender.com5000/uploads/${req.file.filename}`
     : "";
     const newCategory=categoryModel({
         title,

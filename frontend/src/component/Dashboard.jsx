@@ -32,7 +32,7 @@ const Dashboard = () => {
   const token = localStorage.getItem("token");
   const getUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/user", {
+      const res = await axios.get("https://shop-yp92.onrender.com5000/user", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -47,7 +47,7 @@ const Dashboard = () => {
     try {
       if (!window.confirm("Are you sure you want to delete this user?")) return;
 
-      const res = await axios.delete(`http://localhost:5000/user/${id}`, {
+      const res = await axios.delete(`https://shop-yp92.onrender.com5000/user/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -63,7 +63,7 @@ const Dashboard = () => {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/product");
+      const res = await axios.get("https://shop-yp92.onrender.com5000/product");
       setProduct(res.data.product);
       console.log(res.data.product);
     } catch (err) {
@@ -73,7 +73,7 @@ const Dashboard = () => {
 
   const getOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/order", {
+      const res = await axios.get("https://shop-yp92.onrender.com5000/order", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

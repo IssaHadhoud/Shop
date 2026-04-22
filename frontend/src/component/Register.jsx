@@ -19,7 +19,7 @@ const Register = () => {
       toast.error("passwords are not match");
     } else {
       axios
-        .post("http://localhost:5000/user/register", {
+        .post("https://shop-yp92.onrender.com5000/user/register", {
           name: name,
           email: email,
           password: password,

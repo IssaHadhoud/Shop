@@ -20,7 +20,7 @@ const [preview, setPreview] = useState("");
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/user/profile", {
+        const res = await axios.get("https://shop-yp92.onrender.com5000/user/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -50,7 +50,7 @@ getUser();
       formData.append("email", email);
       formData.append("image", image);
 
-      await axios.put(`http://localhost:5000/user/profile/${id}`, formData, {
+      await axios.put(`https://shop-yp92.onrender.com5000/user/profile/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

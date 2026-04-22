@@ -11,7 +11,7 @@ const Cart = () => {
 
   const getCart = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/cart/${sessionId}`);
+      const res = await axios.get(`https://shop-yp92.onrender.com5000/cart/${sessionId}`);
 
       setCart(res.data.cart.items);
     } catch (err) {
@@ -25,7 +25,7 @@ const Cart = () => {
 
   const removeFromCart = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/cart/${sessionId}/${id}`);
+      await axios.delete(`https://shop-yp92.onrender.com5000/cart/${sessionId}/${id}`);
 
       getCart();
     } catch (err) {
@@ -35,7 +35,7 @@ const Cart = () => {
 
   const updateQuantity = async (id, quantity) => {
     try {
-      await axios.put(`http://localhost:5000/cart/update/${sessionId}/${id}`, {
+      await axios.put(`https://shop-yp92.onrender.com5000/cart/update/${sessionId}/${id}`, {
         quantity,
       });
 
@@ -53,7 +53,7 @@ const Cart = () => {
   const checkOut = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/order/checkout",
+        "https://shop-yp92.onrender.com5000/order/checkout",
         { sessionId },
         {
           headers: {

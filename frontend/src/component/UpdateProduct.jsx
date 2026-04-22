@@ -20,7 +20,7 @@ const UpdateProduct = () => {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/product/${id}`);
+      const res = await axios.get(`https://shop-yp92.onrender.com5000/product/${id}`);
       const data = res.data.Product;
 
       setName(data.name);
@@ -37,7 +37,7 @@ const UpdateProduct = () => {
 
   const getCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/category");
+      const res = await axios.get("https://shop-yp92.onrender.com5000/category");
       setCategories(res.data.category);
     } catch (err) {
       toast.error(err.response?.data?.message || "Category error");
@@ -66,7 +66,7 @@ const UpdateProduct = () => {
       }
 
       await axios.put(
-        `http://localhost:5000/product/${id}`,
+        `https://shop-yp92.onrender.com5000/product/${id}`,
         formData,
         {
           headers: {
@@ -89,7 +89,7 @@ const UpdateProduct = () => {
     if (!window.confirm("Delete this product?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/product/${id}`, {
+      await axios.delete(`https://shop-yp92.onrender.com5000/product/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

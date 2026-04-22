@@ -19,7 +19,7 @@ const CreateCategory = () => {
       formData.append("description", description);
       formData.append("image", image);
 
-      await axios.post("http://localhost:5000/category", formData, {
+      await axios.post("https://shop-yp92.onrender.com5000/category", formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

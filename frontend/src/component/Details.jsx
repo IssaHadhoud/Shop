@@ -24,7 +24,7 @@ const Details = () => {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/product/${id}`);
+      const res = await axios.get(`https://shop-yp92.onrender.com5000/product/${id}`);
       setProduct(res.data.Product);
       console.log(res.data.Product);
     } catch (err) {
@@ -35,7 +35,7 @@ const Details = () => {
   const addToCart = async (productId) => {
     try {
       const sessionId = getCreateSessionId();
-      const res = await axios.post("http://localhost:5000/cart/add", {
+      const res = await axios.post("https://shop-yp92.onrender.com5000/cart/add", {
         sessionId,
         productId,
         quantity: 1,
@@ -49,7 +49,7 @@ const Details = () => {
 
   const deleteProduct = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/product/${id}`, {
+      const res = await axios.delete(`https://shop-yp92.onrender.com5000/product/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

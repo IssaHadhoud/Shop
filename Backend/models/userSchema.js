@@ -6,7 +6,7 @@ const userSchema=mongoose.Schema({
     password:{type:String,required:true},
     role:{type:mongoose.Schema.Types.ObjectId,ref:"Role"},
     createAt:{type:Date, default:Date.now},
-    imageURL:{type:String , default:"http://localhost:5000/uploads/Backend/uploads/1776374081320-user (1).png"}
+    imageURL:{type:String , default:"https://shop-yp92.onrender.com5000/uploads/Backend/uploads/1776374081320-user (1).png"}
 })
 
 userSchema.pre("save",async function(){

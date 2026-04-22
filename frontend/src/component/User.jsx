@@ -11,7 +11,7 @@ const User = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5000/user/profile", {
+      .get("https://shop-yp92.onrender.com5000/user/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

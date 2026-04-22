@@ -1,9 +1,10 @@
+
 const mongoose = require("mongoose");
 
 mongoose
   .connect(process.env.DATABASE)
   .then(() => {
-    console.log("DB Ready To Use");
+   console.log("DB Connected");
   })
   .catch((err) => {
     console.log(err);

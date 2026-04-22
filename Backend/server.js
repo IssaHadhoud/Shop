@@ -1,7 +1,12 @@
+
 const express = require("express");
 const app = express();
-require("dotenv").config()
 const cors=require("cors")
+
+require("dotenv").config()
+const dns = require("node:dns");
+
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
 const db = require("./models/db");
 app.use(express.json());
 app.use(cors())
@@ -27,5 +32,5 @@ app.use("/cart",cartRoute)
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-  console.log(`Example application listening at http://localhost:${PORT}`);
+  console.log(`Example application listening at https://shop-yp92.onrender.com${PORT}`);
 });
