@@ -22,7 +22,7 @@ const Category = () => {
       }
   const getCategory = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com5000/category`);
+      const res = await axios.get(`https://shop-yp92.onrender.com/category`);
       setCategory(res.data.category);
       console.log(res.data.category)
     } catch (err) {

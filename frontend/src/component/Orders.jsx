@@ -10,7 +10,7 @@ const Orders = () => {
 
   const getAllOrders = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com5000/order", {
+      const res = await axios.get("https://shop-yp92.onrender.com/order", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

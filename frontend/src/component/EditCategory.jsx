@@ -16,7 +16,7 @@ const EditCategory = () => {
   
   const getCategory = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com5000/category`);
+      const res = await axios.get(`https://shop-yp92.onrender.com/category`);
       const data = res.data.category.find((c) => c._id === id);
 
       setTitle(data.title);
@@ -43,7 +43,7 @@ const EditCategory = () => {
       }
 
       await axios.put(
-        `https://shop-yp92.onrender.com5000/category/${id}`,
+        `https://shop-yp92.onrender.com/category/${id}`,
         formData,
         {
           headers: {
@@ -62,7 +62,7 @@ const EditCategory = () => {
 
   const deleteCategory = async () => {
     try {
-      await axios.delete(`https://shop-yp92.onrender.com5000/category/${id}`, {
+      await axios.delete(`https://shop-yp92.onrender.com/category/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

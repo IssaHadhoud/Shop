@@ -61,7 +61,7 @@ const CreateProduct = () => {
 
   const getCategories = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com5000/category");
+      const res = await axios.get("https://shop-yp92.onrender.com/category");
       setCategories(res.data.category);
     } catch (err) {
       toast.error(err.response?.data?.message || "Category error");

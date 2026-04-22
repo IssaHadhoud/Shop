@@ -61,7 +61,7 @@ const Product = () => {
   const addToCart = async (productId) => {
     try {
       const sessionId = getCreateSessionId();
-      const res = await axios.post("https://shop-yp92.onrender.com5000/cart/add", {
+      const res = await axios.post("https://shop-yp92.onrender.com/cart/add", {
         sessionId,
         productId,
         quantity: 1,

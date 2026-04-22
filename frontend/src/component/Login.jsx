@@ -13,7 +13,7 @@ const Login = () => {
       return toast.error("Please fill all fields");
     }
     try {
-      const res = await axios.post("https://shop-yp92.onrender.com5000/user/login", {
+      const res = await axios.post("https://shop-yp92.onrender.com/user/login", {
         email: email,
         password: password,
       });

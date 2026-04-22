@@ -57,7 +57,7 @@ const createProduct=(req,res)=>{
     const {name,description,price,stock,category,createdBy}=req.body;
     console.log(name)
     const imageURL = req.file
-      ? `https://shop-yp92.onrender.com5000/uploads/${req.file.filename}`
+      ? `https://shop-yp92.onrender.com/uploads/${req.file.filename}`
       : "";
       console.log(imageURL)
     const newProduct=productModel({
@@ -120,7 +120,7 @@ const updateProduct=(req,res)=>{
     const {id}=req.params;
     const update=req.body;
     const imageURL = req.file
-      ? `https://shop-yp92.onrender.com5000/uploads/${req.file.filename}`
+      ? `https://shop-yp92.onrender.com/uploads/${req.file.filename}`
       : "";
       if(imageURL){
         update.imageURL = imageURL
