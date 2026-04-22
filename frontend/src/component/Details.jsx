@@ -24,7 +24,7 @@ const Details = () => {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com5000/product/${id}`);
+      const res = await axios.get(`https://shop-yp92.onrender.com/${id}`);
       setProduct(res.data.Product);
       console.log(res.data.Product);
     } catch (err) {
@@ -49,7 +49,7 @@ const Details = () => {
 
   const deleteProduct = async (id) => {
     try {
-      const res = await axios.delete(`https://shop-yp92.onrender.com5000/product/${id}`, {
+      const res = await axios.delete(`https://shop-yp92.onrender.com/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

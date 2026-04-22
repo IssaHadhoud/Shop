@@ -20,7 +20,7 @@ const UpdateProduct = () => {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get(`https://shop-yp92.onrender.com5000/product/${id}`);
+      const res = await axios.get(`https://shop-yp92.onrender.com/${id}`);
       const data = res.data.Product;
 
       setName(data.name);
@@ -66,7 +66,7 @@ const UpdateProduct = () => {
       }
 
       await axios.put(
-        `https://shop-yp92.onrender.com5000/product/${id}`,
+        `https://shop-yp92.onrender.com/${id}`,
         formData,
         {
           headers: {
@@ -89,7 +89,7 @@ const UpdateProduct = () => {
     if (!window.confirm("Delete this product?")) return;
 
     try {
-      await axios.delete(`https://shop-yp92.onrender.com5000/product/${id}`, {
+      await axios.delete(`https://shop-yp92.onrender.com/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

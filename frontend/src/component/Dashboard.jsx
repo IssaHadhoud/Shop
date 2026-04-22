@@ -63,7 +63,7 @@ const Dashboard = () => {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get("https://shop-yp92.onrender.com5000/product");
+      const res = await axios.get("https://shop-yp92.onrender.com");
       setProduct(res.data.product);
       console.log(res.data.product);
     } catch (err) {
