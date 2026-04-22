@@ -16,7 +16,6 @@ const UpdateProduct = () => {
   const [preview, setPreview] = useState("");
   const [categories, setCategories] = useState([]);
 
-  const token = localStorage.getItem("token");
 
   const getProduct = async () => {
     try {
@@ -68,12 +67,6 @@ const UpdateProduct = () => {
       await api.put(
         `/product/${id}`,
         formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
       );
 
       toast.success("Product updated successfully");

@@ -9,13 +9,8 @@ const User = () => {
   
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
     api
-      .get(`/user/profile`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get(`/user/profile`)
       .then((result) => {
         setUser(result.data.profile);
         console.log(result.data.profile)

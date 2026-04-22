@@ -5,18 +5,13 @@ import api from "../api";
 
 const SingleOrder = () => {
   const { id } = useParams();
-  const token = localStorage.getItem("token");
   const [order, setOrder] = useState("");
 
   const navigate = useNavigate();
 
   const getOrder = async () => {
     try {
-      const res = await api.get(`/order/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await api.get(`/order/${id}`);
       console.log(res.data.order);
       setOrder(res.data.order);
     } catch (err) {

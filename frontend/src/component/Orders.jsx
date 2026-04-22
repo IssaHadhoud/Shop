@@ -5,16 +5,11 @@ import { Link } from "react-router-dom";
 import api from "../api";
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   const getAllOrders = async () => {
     try {
-      const res = await api.get(`/order`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await api.get(`/order`);
       setOrders(res.data.orders);
       console.log(res.data.orders);
     } catch (err) {

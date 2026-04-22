@@ -29,14 +29,9 @@ const Dashboard = () => {
   const [users, setUsers] = useState([]);
   const [product, setProduct] = useState([]);
   const [orders, setOrders] = useState([]);
-  const token = localStorage.getItem("token");
   const getUsers = async () => {
     try {
-      const res = await api.get("/user", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await api.get("/user");
       setUsers(res.data.users);
     } catch (err) {
       toast.error(err.response?.data?.message);
@@ -47,11 +42,7 @@ const Dashboard = () => {
     try {
       if (!window.confirm("Are you sure you want to delete this user?")) return;
 
-      const res = await api.delete(`/user/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await api.delete(`/user/${id}`);
 
       toast.success(res.data.message);
       getUsers();
