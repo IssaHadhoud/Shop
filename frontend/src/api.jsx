@@ -1,13 +1,8 @@
 import axios from "axios";
 
-// let setGlobalLoading;
-
-// export const setLoader = (loaderFn) => {
-//   setGlobalLoading = loaderFn;
-// };
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: import.meta.env.VITE_API_URL 
 });
 
 api.interceptors.request.use(
